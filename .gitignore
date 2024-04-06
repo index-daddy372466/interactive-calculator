@@ -1,3 +1,5 @@
 node_modules
+calculator.sql
 .env
 media
+current_calc
