@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { Pool } = require('pg')
-// const { Sequelize } = require('sequelize')
+const { Sequelize } = require('sequelize')
 
     const sequalize = new Sequelize(process.env.DB_URI,
         {dialect:"sqlite",
