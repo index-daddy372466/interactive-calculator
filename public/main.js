@@ -1,3 +1,4 @@
+// variables
 let btns = document.querySelectorAll('.btn'),
     display = document.querySelector('.display-actual'),
     calculator = document.querySelector('.cal-actual'),
@@ -10,8 +11,12 @@ let btns = document.querySelectorAll('.btn'),
         equation:document.querySelector('.hisDisplay-text-equation')
     },
     clearBtn = document.querySelector('.clr'),
-    indicators = document.querySelectorAll('#indicator-container>span')
+    indicators = document.querySelectorAll('#indicator-container>span'),
+    combo = []
+//_______________________________________
 
+// helper functions:
+// 1) Hide Arrow Indicators
 const hideIndicators = (indArr) => {
     indArr[0].classList.add('indicator-off')
     indArr[1].classList.add('indicator-off')
@@ -21,6 +26,7 @@ const hideIndicators = (indArr) => {
     indArr[0].parentElement.classList.remove('yes-white')
 
 }
+// 2) Show Arrow Indicators
 const enableIndicators = (indArr) => {
     indArr[0].classList.remove('indicator-off')
     indArr[1].classList.remove('indicator-off')
@@ -29,6 +35,7 @@ const enableIndicators = (indArr) => {
     indArr[0].parentElement.classList.add('no-white')
 
 }
+// 3) Toggle Arrow Right
 const toggleRightArrow = (indArr) => {
     indArr[0].classList.add('indicator-off')
     indArr[1].classList.add('indicator-off')
@@ -41,6 +48,7 @@ const toggleRightArrow = (indArr) => {
         indArr[1].classList.remove('indicator-off')
     },150)
 }
+// 4) ToggleArrow Left
 const toggleLeftArrow = (indArr) => {
     indArr[0].classList.add('indicator-off')
     indArr[1].classList.add('indicator-off')
@@ -55,6 +63,7 @@ const toggleLeftArrow = (indArr) => {
     },150)
     
 }
+// 5) History Container - Blinking effect on <h3> elements
 const blink = (element,time) => {
     element.classList.add('blink')
     setTimeout(()=>{
@@ -62,18 +71,21 @@ const blink = (element,time) => {
     },time)
     
 }
+// 6) Hide History Container
 const hideHistory = (display) => {
     display.res.classList.add('dis-hidden')
     display.equation.classList.add('dis-hidden')
     display.res.classList.remove('dis-show')
     display.equation.classList.remove('dis-show')
 }
+// 7) Show History Container
 const showHistory = (display) => {
     display.res.classList.remove('dis-hidden')
     display.equation.classList.remove('dis-hidden')
     display.res.classList.add('dis-show')
     display.equation.classList.add('dis-show')
 }
+// 8) History is Cleared
 function stop(){
     let indArr = [...indicators]
     clearBtn.onclick=()=>{
@@ -87,8 +99,7 @@ function stop(){
     }
 }
 stop()
-        
-
+// 9) Handle History via GET Request
 const handleHistory = (arr) => {
     let indArr = [...indicators]
     const approvedKeys = ['ArrowRight','ArrowLeft']
@@ -144,7 +155,7 @@ const handleHistory = (arr) => {
         }
     }
 }
-// get the full history of equations and results produces
+// 10) Get the full history of equations and results produces
 const getData = (u) => {
     // get data
     $.ajax({
@@ -159,7 +170,7 @@ const getData = (u) => {
     })
 }
 getData(url)
-// post data from client side to server 
+// 11) Post data from client side to server 
 const renderHistory = (url,val,trust) => {
     const newData = {res:val,equation:trust}
     hisDisplay.res.textContent = ''
@@ -180,7 +191,12 @@ const renderHistory = (url,val,trust) => {
     //get data
     getData(copy_url,newData)
 }
-// change calculator's bg color
+// 12) Function to check for 2 keys pressed at the same time
+const isCleared = () => combo[combo.length-1] == 'c' && combo[combo.length-2] == 'Control';
+
+//__________________________________
+
+// Change calculator's background color
 colors.forEach((color,index)=>{
 
     color.addEventListener('click', e =>{
@@ -278,7 +294,7 @@ colors.forEach((color,index)=>{
         }
     })
 })
-//Looping throught the btns array to use the "click" event listener
+// Loop through each button - 'click' event listener
 btns.forEach(btn => {
     //Event listener to click buttons
     btn.addEventListener('click',(e)=>{
@@ -339,8 +355,6 @@ btns.forEach(btn => {
     })
     
 })
-let combo = [];
-const isCleared = () => combo[combo.length-1] == 'c' && combo[combo.length-2] == 'Control';
 //Event listener to detect keydown event listener
 window.addEventListener('keydown',(e)=>{
     let indArr = [...indicators]

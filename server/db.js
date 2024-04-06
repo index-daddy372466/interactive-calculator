@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { Pool } = require('pg')
-const { Sequelize } = require('sequelize')
+// const { Sequelize } = require('sequelize')
 
     // const sequalize = new Sequelize(process.env.DB_URI,
     //     {dialect:"sqlite",
@@ -22,10 +22,6 @@ const pool = new Pool({
     }
 
 })
-//jdbc:postgresql://host:port/database
-
-//Connection db = DriverManager.getConnection(url,user,pwd);
-
 
 // const getRows = async (pool) => {
 //     const rows = await pool.query('select * from calculator order by id desc')
