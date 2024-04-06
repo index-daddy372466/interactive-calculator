@@ -163,8 +163,6 @@ const getData = (u) => {
         url: u,
         success:function(data){
             const arr = [...data.data] // unpackage data from it's object (data)
-            
-            console.log(arr)
             handleHistory(arr)
         }
     })
@@ -184,7 +182,7 @@ const renderHistory = (url,val,trust) => {
         $.ajax({
             type: 'POST',
             url: u,
-            data: {display:v,equation:t}
+            data: {result:v,equation:t}
         })
      }
     postData(copy_url,val,trust)
@@ -317,7 +315,7 @@ btns.forEach(btn => {
         if(/=/.test(chr)){
             let trust = [...display.value].join``
             //Helper function to evaluate
-            display.value = eval(display.value);
+            display.value = !display.value ? '' : eval(display.value);
             // post request function
             renderHistory(url,display.value,trust)
         }
@@ -391,7 +389,7 @@ window.addEventListener('keydown',(e)=>{
     if(e.key=='Enter'|| e.key=='='){
     let trust = [...display.value].join``
     //board.textContent= eval(display.value);
-    display.value = eval(display.value);
+    display.value = !display.value ? '' : eval(display.value);
     renderHistory(url,display.value,trust)
     }
     if(e.key=='c') {
