@@ -118,6 +118,7 @@ transition:.05s;
 #indicator-container{
     width:100%;
     display:flex;
+    background:#333;
     justify-content: space-evenly;
     padding:0 2rem;
     align-items: center;
@@ -127,13 +128,6 @@ transition:.05s;
     border-radius:12px;
     transition:.25s;
     
-}
-/*manipulate indicator's background */
-.no-white{
-    background:transparent;
-}
-.yes-white{
-    background:#000;
 }
 /*rotate material icon */
 #indicator-container>span:nth-child(1){

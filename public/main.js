@@ -224,15 +224,6 @@ colors.forEach((color,index)=>{
         inArr.forEach(el=>{
                 el.style.color = e.target.classList[0]
         })
-        
-        if(/(white|yellow|violet|lime)/i.test(e.target.classList[0])){
-            inArr[0].parentElement.classList.remove('no-white')
-            inArr[0].parentElement.classList.add('yes-white')
-        }
-        else{
-            inArr[0].parentElement.classList.add('no-white')
-            inArr[0].parentElement.classList.remove('yes-white')
-        }
 
         if(/(black|blue|red)/.test(e.target.classList[0])){
             return btns.forEach(btn => {
