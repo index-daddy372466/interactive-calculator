@@ -17,6 +17,7 @@ justify-content: center;">
 <li><a style="color:ghostwhite;text-decoration:none" href="#about">About the Project</a></li>
 <li><a style="color:ghostwhite;text-decoration:none" href="#getting-started">Getting Started</a></li>
 <li><a style="color:ghostwhite;text-decoration:none" href="#usage">Usage</a></li>
+<li><a style="color:ghostwhite;text-decoration:none" href="#fork">Fork</a></li>
 <li><a style="color:ghostwhite;text-decoration:none" href="#license">License</a></li>
 <li><a style="color:ghostwhite;text-decoration:none" href="#contact">Contact</a></li>
 </ol>
@@ -58,13 +59,36 @@ Finally a clearing(CLR) function truncates(removes) all data from the database.<
 
 <div id="usage">
 <h2 style="background:#fff;padding:.25rem .5rem;border-radius:12px;color:#000;">Usage</h2>
+
+<h3>Usage Breakdown</h3>
+<ul style="margin-top:-1.25rem;">
+<li>Operations: +, -, /, x</li>
+<li>=/ENTER: post result</li>
+<li>AC: clear current equation</li>
+<li>CLR: clear history of calculated results</li>
+<li>NEG: turn a number into a positive number integer negative</li>
+<li>DELETE: delete value from input (1 value at a time)</li>
+<li>Left Arrow Key: scroll recent values left</li>
+<li>Right Arrow Key: scroll recent values right</li>
+
+
+
+
+</ul>
+
 <h4>POST</h4>
+<img src="media/calculator-post.gif" alt="drawing" width="250" height="375px"/>
+<div><em>post calculated data to the database</em>
+</div>
 <h4>GET</h4>
+<img src="media/calculator-get.gif" alt="drawing" width="250" height="375px"/>
+<div><em>retrieve calculated data from the database</em></div>
+
 </div>
 
 
 
 
-
+<div id="fork">Fork Section</div>
 <div id="license">license Section</div>
 <div id="contact">contact Section</div>
