@@ -1,5 +1,5 @@
-<body style="scroll-behavior:smooth;transition:.5s;"></body>
-<html style="transition:.5s"></html>
+<body style="scroll-behavior:smooth;transition:1.25s;"></body>
+<html style="transition:1.25s"></html>
 <!--title -->
 <div style="text-align:center;
 display:flex;
@@ -206,7 +206,7 @@ External Database URL example:<br>
 </ol>
 
 <h4>Run your Project</h4>
-<p>Within the project folder <b>interactive-calculator</b>, or a renamed version, access the terminal and type: <code>npm run dev</code></p>
+<p>Within the project folder <b>interactive-calculator</b>, or a renamed version, access the terminal and type:<br><code>npm run dev</code></p>
 
 <h3>Happy Forking</h3>
 <div id="license">license Section</div>
