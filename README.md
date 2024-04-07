@@ -11,6 +11,7 @@ justify-content: center;">
 
 <!-- calculator img -->
 <div style="display:flex;
+text-align:center;
 width:100%;
 flex-direction: column;
 align-items:center;
