@@ -9,7 +9,7 @@ justify-content: center;">
 <h1 style="background:#000;padding:.25rem .5rem;border-radius:12px;color:ghostwhite;">Interactive Calculator</h1>
 </div>
 <!-- calculator gif-->
-<img src="media/calculator-gif.gif" alt="drawing" width="100%" height="150px"/>
+<img src="media/calculator-gif.gif" alt="drawing" width="80%" height="150px"/>
 <div>
     <h3 style="text-decoration:underline">Table of Contents</h3>
 </div>
@@ -22,7 +22,7 @@ justify-content: center;">
 </ol>
 
 <div id="about">
-<h2>About the Project</h2>
+<h2 style="background:#fff;padding:.25rem .5rem;border-radius:12px;color:#000;">About the Project</h2>
 <!-- calculator img -->
     <div style="display:flex;
     width:100%;
@@ -57,7 +57,7 @@ Finally a clearing(CLR) function truncates(removes) all data from the database.<
 
 
 <div id="usage">
-<h2>Usage</h2>
+<h2 style="background:#fff;padding:.25rem .5rem;border-radius:12px;color:#000;">Usage</h2>
 <h4>POST</h4>
 <h4>GET</h4>
 </div>
