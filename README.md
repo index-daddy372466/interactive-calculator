@@ -90,7 +90,7 @@ Finally a clearing(CLR) function truncates(removes) all data from the database.<
 
 
 <div id="fork">
-<h2>Create your Version</h2>
+<h2 style="background:#fff;padding:.25rem .5rem;border-radius:12px;color:#000;">Create your Version</h2>
 
 <h4>Clone Repository</h4>
 <code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">git clone https://github.com/kylestech95/interactive/interactive-calculator.git</code>
@@ -219,5 +219,6 @@ External Database URL example:<br>
 
 
 
-<div id="license">license Section</div>
-<div id="contact">contact Section</div>
+<h2 style="background:#fff;padding:.25rem .5rem;border-radius:12px;color:#000;">License</h2>
+<p>Distributed under the MIT License. See <code>LICENSE.txt</code> for more information.
+</p>
