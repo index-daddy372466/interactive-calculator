@@ -194,6 +194,7 @@ External Database URL example:<br>
 <code>postgres://jondoe:4f%^3dgtju7%#22cDESz@example123.com/calculator</code>.
 </p>
 
+<em><p>For more information on sequelize, <a href="https://sequelize.org/docs/v6/getting-started/">view the docs</a></p>
 
 </div>
 
