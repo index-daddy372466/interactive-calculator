@@ -99,6 +99,12 @@ Finally a clearing(CLR) function truncates(removes) all data from the database.<
 <img src="media/nodejs.jpeg" style="height:150px; width:150px;border-radius:50%;box-shadow: 0 0 11px .26px ghostwhite;"/>
 <div style="width:50%;display:flex;
 flex-direction:column;">
+<p>If NodeJS is not on your system, download NodeJS here:<br>
+<a href="https://nodejs.org/en/download">NodeJS Downloads</a>
+</p>
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">sudo apt-get update</code>
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;margin-top:.25rem;">sudo apt-get upgrade</code>
+and 
 <code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">npm install -y</code>
 or
 <code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">npm install</code>
@@ -194,7 +200,7 @@ External Database URL example:<br>
 <code>postgres://jondoe:4f%^3dgtju7%#22cDESz@example123.com/calculator</code>.
 </p>
 
-<em><p>For more information on sequelize, <a href="https://sequelize.org/docs/v6/getting-started/">view the docs</a></p>
+<em><p>For more information on sequelize, <a href="https://sequelize.org/docs/v6/getting-started/">view the docs</a></p></em>
 
 </div>
 
