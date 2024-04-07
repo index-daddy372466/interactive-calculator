@@ -63,6 +63,7 @@ Finally a clearing(CLR) function truncates(removes) all data from the database.<
 <ul style="margin-top:-1.25rem;">
 <li>Operations: +, -, /, x</li>
 <li>=/ENTER: post result</li>
+<li>0-9: type integers on keydown</li>
 <li>AC: clear current equation</li>
 <li>CLR: clear history of calculated results</li>
 <li>NEG: turn a number into a positive number integer negative</li>
@@ -88,6 +89,52 @@ Finally a clearing(CLR) function truncates(removes) all data from the database.<
 
 
 
-<div id="fork">Fork Section</div>
+<div id="fork">
+<h2>Create your Version</h2>
+
+<h4>Clone Repository</h4>
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">git clone https://github.com/kylestech95/interactive/interactive-calculator.git</code>
+
+<h4>Install Node Packages</h4>
+<img src="media/nodejs.jpeg" style="height:150px; width:150px;border-radius:50%;box-shadow: 0 0 11px .26px ghostwhite;"/>
+<div style="width:50%;display:flex;
+flex-direction:column;">
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">npm install -y</code>
+or
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">npm install</code>
+or
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">npm i</code>
+</div>
+
+<h4>Import & configure Database</h4>
+<img src="media/pgsql.png" style="height:150px; width:150px;border-radius:50%;box-shadow: 0 0 11px .26px ghostwhite;"/>
+<p>If you do not have postgresql on your system, download postgres here:<br>
+<a href="https://www.postgresql.org/download/">Postgres Downloads</a>
+</p>
+
+<h4>import database from .sql file</h4>
+<p>Before importing database, ensure that a database is created within your local postgres environemnt</p>
+<div style="width:80%;display:flex;
+flex-direction:column;">
+Create Database:
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">CREATE DATABASE [database];</code>
+Example: <code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">CREATE DATABASE calculator;</code>
+</div>
+</div>
+<br>
+
+<div style="width:80%;display:flex;
+flex-direction:column;">
+Import:
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">psql -U [username] [database] < calculator.sql</code>
+Example: <code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">psql -U jondoe calculator < calculator.sql</code>
+</div>
+</div>
+<h4>Connect database to the server</h4>
+
+
+</div>
+
+
 <div id="license">license Section</div>
 <div id="contact">contact Section</div>
