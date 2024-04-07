@@ -29,7 +29,7 @@ justify-content: center;">
     flex-direction: column;
     align-items:center;
     justify-content: center;">
-        <img src="media/calculator-main.png" alt="drawing" width="250" height="375px"/>
+        <img src="media/calc-color-gif.gif" alt="drawing" width="250" height="375px"/>
        <p style="font-size:16px;margin-top:1rem;line-height:1.25rem">Imagine working with a calculator where one can look back on recently-used equations & results.
 This component does exactly that!</p>
 
