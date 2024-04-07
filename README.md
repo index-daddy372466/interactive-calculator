@@ -63,6 +63,7 @@ Finally a clearing(CLR) function truncates(removes) all data from the database.<
 <ul style="margin-top:-1.25rem;">
 <li>Operations: +, -, /, x</li>
 <li>=/ENTER: post result</li>
+<li>0-9: type integers on keydown</li>
 <li>AC: clear current equation</li>
 <li>CLR: clear history of calculated results</li>
 <li>NEG: turn a number into a positive number integer negative</li>
@@ -88,6 +89,28 @@ Finally a clearing(CLR) function truncates(removes) all data from the database.<
 
 
 
-<div id="fork">Fork Section</div>
+<div id="fork">
+<h2>Create your Version</h2>
+
+<h4>Clone Repository</h4>
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">git clone https://github.com/kylestech95/interactive/interactive-calculator.git</code>
+
+<h4>Install Node Packages</h4>
+<img src="media/nodejs.jpeg" style="height:150px; width:150px;border-radius:50%;"/>
+<div style="width:50%;display:flex;
+flex-direction:column;">
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">npm install -y</code>
+or
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">npm install</code>
+or
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">npm i</code>
+</div>
+
+<h4>Import the Database</h4>
+<img src="media/" style="height:150px; width:150px;border-radius:50%;"/>
+
+</div>
+
+
 <div id="license">license Section</div>
 <div id="contact">contact Section</div>
