@@ -108,14 +108,16 @@ or
 
 <h4>Import & configure Database</h4>
 <img src="media/pgsql.png" style="height:150px; width:150px;border-radius:50%;box-shadow: 0 0 11px .26px ghostwhite;"/>
-<p>If you do not have postgresql on your system, download postgres here:<br>
+<p>If postgresql is not on your system, download postgres here:<br>
 <a href="https://www.postgresql.org/download/">Postgres Downloads</a>
 </p>
 
-<h4>import database from .sql file</h4>
+<h4 id="import">import database from .sql file</h4>
 <p>Before importing database, ensure that a database is created within your local postgres environemnt</p>
-<div style="width:80%;display:flex;
+<div style="width:50%;display:flex;
 flex-direction:column;">
+Enter local Database from terminal:
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">psql -U postgres</code>
 Create Database:
 <code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">CREATE DATABASE [database];</code>
 Example: <code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">CREATE DATABASE calculator;</code>
@@ -125,16 +127,87 @@ Example: <code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">C
 
 <div style="width:80%;display:flex;
 flex-direction:column;">
-Import:
+Import <code style="margin:0;padding:0;width:140px;">calculator.sql</code> into database:
 <code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">psql -U [username] [database] < calculator.sql</code>
-Example: <code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">psql -U jondoe calculator < calculator.sql</code>
+Examples: <code style="color:ghostwhite;background:#000;padding: .25rem .5rem;margin-bottom:.5rem;">psql -U postgres calculator < calculator.sql</code>
+<code style="color:ghostwhite;background:#000;padding: .25rem .5rem;">psql -U jondoe calculator < calculator.sql</code>
 </div>
 </div>
 <h4>Connect database to the server</h4>
+<p>After importing the calculator database, you have the option to <b>plug-in</b> database information within <code style="margin:0;padding:0;width:140px;">server/db.js</code> for the public to see <em>or</em> create a <code style="margin:0;padding:0;width:125px;">.env</code> file to securely <b>plug-in</b> database information & store them into variables <b style="text-decoration:underline">(recommended)</b>.</p>
+<p style="margin-top:.05rem;">The project file, <code>package.json</code>includes a dependency called <b id="dotenv">dotenv</b>.<br>
+Within the <code>db.js</code> file or similar version, include <b>dotenv</b> at the top of the file.<br>
+At this point, the <b>.env</b> environment variables should be read by the server and stored as <code>process.env.VAR</code> variables.<br>
+<em>type: commonjs</em><br>
+<code>require("dotenv").config()<br>
+</code>
+<em style="margin-top:.25rem">type: module</em><br>
+<code>import "dotenv/config"<br>
+</code>
+</p>.
+<p style="margin-top:.05rem;text-decoration:underline">The process.env.VAR schema can be viewed in <code style="margin:0;padding:0;width:100px;">db.js</code> & below:</p>
+
+<code style="text-align:center;background:#000;color:gold;">
+
+const pool = new Pool({<br>
+    user: process.env.DBU,<br>
+    database: process.env.DB,<br>
+    password: process.env.PD,<br>
+    port: process.env.DBP,<br>
+    host:process.env.DBH,<br>
+    ssl:{<br>
+        rejectUnauthorized: false,<br>
+    }<br>
+})
+
+</code>
+
+<h4 id="sequelize">Finally, comment out all sequelize instances in <code>db.js:</code></h4><br>
+<code style="text-align:center;background:#000;color:gold; margin-top:.5rem">
+
+const { Sequelize } = require('sequelize')
+
+//     const sequalize = new Sequelize(process.env.DB_URI,<br>
+//         {dialect:"sqlite",<br>
+//          storage:"./database.sqlite",<br>
+//          logging:false,<br>
+//         })<br>
+//         sequalize.sync().then(()=>{<br>
+//             console.log('you are connected to pg')<br>
+//         }).catch(err=>console.log(err))
+
+</code>
+<h4>Sequelize will not be needed for running the database locally.</h4>
+<h4>...but if you are curious, read below:</h4><br>
+
+
+<p>Sequelize is an <em>Object Relational Mapper</em> which makes it easier to handle databases locally and externally. Currently, if one is to run the server with the sequelize instance, an error would occur because a URI is probably not set. My URI has been setup with <b><a href="render.com" style="text-decoration:none;">Render.com</a></b><br style="margin-bottom:.25rem;">
+Both Internal & external URI tempalates for postgres is below:<br><br>
+Internal Database URL format:<br>
+<code style="margin-top:.5rem;">postgres://[username]:[password]@[hostname]/[database]</code><br>
+External Database URL format:<br>
+<code >postgres://[username]:[password]@[hostname].[domin_name].com/[database]</code>.
+<br><br>
+Internal Database URL example:<br>
+<code style="margin-top:.5rem;">postgres://jondoe:4f%^3dgtju7%#22cDESz@example123/calculator</code><br>
+External Database URL example:<br>
+<code>postgres://jondoe:4f%^3dgtju7%#22cDESz@example123.com/calculator</code>.
+</p>
 
 
 </div>
 
+<h3>Execution</h3>
+<p style="text-decoration:underline">At this point:</p>
+<ol>
+<li>Postgres is installed & the <code>.sql</code> file is <a href="#import" style="text-decoration:none"><b>imported</b></a> into your newly created database (calculator)</li>
+<li>Your database is plugged into the <code>db.js</code> file publically or securely(recommended - <a href="#dotenv"><b>dotenv</b></a>)</li>
+<li>All <a href="#sequelize"><b>sequelize</b></a> instances are commented to run the project locally.</li>
+</ol>
 
+<h4>Run your Project</h4>
+<p>Within the project folder <b>interactive-calculator</b>, or a renamed version, access the terminal and type: <code>npm run dev</code></p>
+
+<h3>Happy Forking</h3>
 <div id="license">license Section</div>
 <div id="contact">contact Section</div>
