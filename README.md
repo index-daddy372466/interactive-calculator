@@ -15,14 +15,13 @@ justify-content: center;">
 </div>
 <ol style="width:100%;">
 <li><a style="color:ghostwhite;text-decoration:none" href="#about">About the Project</a></li>
-<li><a style="color:ghostwhite;text-decoration:none" href="#getting-started">Getting Started</a></li>
 <li><a style="color:ghostwhite;text-decoration:none" href="#usage">Usage</a></li>
 <li><a style="color:ghostwhite;text-decoration:none" href="#fork">Fork</a></li>
 <li><a style="color:ghostwhite;text-decoration:none" href="#license">License</a></li>
 <li><a style="color:ghostwhite;text-decoration:none" href="#contact">Contact</a></li>
 </ol>
 
-<div id="about">
+<div id="about" style="margin-top:1rem">
 <h2 style="background:#fff;padding:.25rem .5rem;border-radius:12px;color:#000;">About the Project</h2>
 <!-- calculator img -->
     <div style="display:flex;
@@ -57,7 +56,7 @@ Finally a clearing(CLR) function truncates(removes) all data from the database.<
 </div>
 
 
-<div id="usage">
+<div id="usage" style="margin-top:1rem">
 <h2 style="background:#fff;padding:.25rem .5rem;border-radius:12px;color:#000;">Usage</h2>
 
 <h3>Usage Breakdown</h3>
