@@ -36,33 +36,33 @@ const enableIndicators = (indArr) => {
 
 }
 // 3) Toggle Arrow Right
-const toggleRightArrow = (indArr) => {
-    indArr[0].classList.add('indicator-off')
-    indArr[1].classList.add('indicator-off')
-    indArr[0].classList.remove('indicator-on')
-    indArr[1].classList.remove('indicator-on')
-    setTimeout(()=>{
-        indArr[0].classList.remove('indicator-on')
-        indArr[1].classList.add('indicator-on')
-        indArr[0].classList.add('indicator-off')
-        indArr[1].classList.remove('indicator-off')
-    },150)
-}
+// const toggleRightArrow = (indArr) => {
+//     indArr[0].classList.add('indicator-off')
+//     indArr[1].classList.add('indicator-off')
+//     indArr[0].classList.remove('indicator-on')
+//     indArr[1].classList.remove('indicator-on')
+//     setTimeout(()=>{
+//         indArr[0].classList.remove('indicator-on')
+//         indArr[1].classList.add('indicator-on')
+//         indArr[0].classList.add('indicator-off')
+//         indArr[1].classList.remove('indicator-off')
+//     },150)
+// }
 // 4) ToggleArrow Left
-const toggleLeftArrow = (indArr) => {
-    indArr[0].classList.add('indicator-off')
-    indArr[1].classList.add('indicator-off')
-    indArr[0].classList.remove('indicator-on')
-    indArr[1].classList.remove('indicator-on')
+// const toggleLeftArrow = (indArr) => {
+//     indArr[0].classList.add('indicator-off')
+//     indArr[1].classList.add('indicator-off')
+//     indArr[0].classList.remove('indicator-on')
+//     indArr[1].classList.remove('indicator-on')
 
-    setTimeout(()=>{
-        indArr[0].classList.add('indicator-on')
-        indArr[1].classList.remove('indicator-on')
-        indArr[0].classList.remove('indicator-off')
-        indArr[1].classList.add('indicator-off')
-    },150)
+//     setTimeout(()=>{
+//         indArr[0].classList.add('indicator-on')
+//         indArr[1].classList.remove('indicator-on')
+//         indArr[0].classList.remove('indicator-off')
+//         indArr[1].classList.add('indicator-off')
+//     },150)
     
-}
+// }
 // 5) History Container - Blinking effect on <h3> elements
 const blink = (element,time) => {
     element.classList.add('blink')
@@ -92,7 +92,6 @@ function stop(){
         display.value = ''
         hisDisplay.res.textContent=''
         hisDisplay.equation.textContent=''
-        console.log('test pass')
         fetch(del)
         getData(url)
         hideIndicators(indArr)
@@ -104,13 +103,11 @@ const handleHistory = (arr) => {
     let indArr = [...indicators]
     const approvedKeys = ['ArrowRight','ArrowLeft']
     let currentPos = 0;
-    const currentRes = true;
-    window.onkeydown = e => {
-        
-        if(approvedKeys.includes(e.key) && arr.length>=1){
+    window.onkeydown = e => {  
+        if(approvedKeys.includes(e.key) && arr.length>1){
             enableIndicators(indArr)
             if((approvedKeys[0])==(e.key)&&currentPos > 0){
-                toggleRightArrow(indArr)
+                // toggleRightArrow(indArr)
                 hideHistory(hisDisplay)
                 currentPos--
                 // console.log(currentPos)
@@ -132,7 +129,7 @@ const handleHistory = (arr) => {
                 // indicator right
             }//if key is equal to right
             if((approvedKeys[1])==(e.key)&&currentPos < arr.length-1){
-                toggleLeftArrow(indArr)
+                // toggleLeftArrow(indArr)
                 hideHistory(hisDisplay)
                 currentPos++
                 return [...arr].forEach((el,index)=>{
@@ -154,40 +151,108 @@ const handleHistory = (arr) => {
             }//if key is equal to left
         }
     }
+    indArr.forEach((arrow,idx)=>{
+        arrow.onclick = e => {
+            if(arr.length>1){
+                enableIndicators(indArr)
+                if(idx==1&&currentPos > 0){
+                    // toggleRightArrow(indArr)
+                    hideHistory(hisDisplay)
+                    currentPos--
+                    // console.log(currentPos)
+                    return [...arr].forEach((el,index)=>{
+                        if(index==currentPos){
+                            const object = {res:el.res,equation:el.equation}
+                            hisDisplay.res.textContent = object.res
+                            hisDisplay.equation.textContent = object.equation
+                            const hisArr = [hisDisplay.equation,hisDisplay.res]
+                            // console.log(el)
+                            for(let x = 0; x < hisArr.length; x++){
+                                setTimeout(()=>{
+                                    hisArr[x].classList.remove('dis-hidden')
+                                    hisArr[x].classList.add('dis-show')
+                                },150*(x+1))
+                            }
+                        }
+                    })
+                    // indicator right
+                }//if key is equal to right
+                if(idx==0&&currentPos < arr.length-1){
+                    // toggleLeftArrow(indArr)
+                    hideHistory(hisDisplay)
+                    currentPos++
+                    return [...arr].forEach((el,index)=>{
+                        if(index==currentPos){
+                            const object = {res:el.res,equation:el.equation}
+                            hisDisplay.res.textContent = object.res
+                            hisDisplay.equation.textContent = object.equation
+                            const hisArr2 = [hisDisplay.res,hisDisplay.equation]
+                            // console.log(el)
+                            for(let x = 0; x < hisArr2.length; x++){
+                                setTimeout(()=>{
+                                    hisArr2[x].classList.remove('dis-hidden')
+                                    hisArr2[x].classList.add('dis-show')
+                                },150*(x+1))
+                            }
+                        }
+                    })
+                    
+                }//if key is equal to left
+            }
+        }
+    })
 }
 // 10) Get the full history of equations and results produces
 const getData = (u) => {
     // get data
-    $.ajax({
+    return $.ajax({
         type: 'GET',
         url: u,
         success:function(data){
-            const arr = [...data.data] // unpackage data from it's object (data)
+            let arr = [...data.data] // unpackage data from it's object (data)
+            console.log(arr)
             handleHistory(arr)
+            if(arr.length > 1){
+                enableIndicators([...indicators])
+            }
+            return arr
         }
     })
+    
 }
 getData(url)
+
+// post data to the server
+const postData = async (u,v,t) => {
+    $.ajax({
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",    
+        type: 'POST',
+        url: u,
+        data: JSON.stringify({result:v,equation:t}),
+        success:function(data){
+            console.log(data)
+            let counter = data['c']
+            if(counter > 1){
+                enableIndicators([...indicators])
+            }
+        }
+    })
+
+ }
+
 // 11) Post data from client side to server 
-const renderHistory = (url,val,trust) => {
-    const newData = {res:val,equation:trust}
+const renderHistory = async(url,val,trust) => {
+    let newData = {res:val,equation:trust}
     hisDisplay.res.textContent = ''
     hisDisplay.equation.textContent = ''
     hisDisplay.res.textContent = newData.res
     hisDisplay.equation.textContent = newData.equation
     showHistory(hisDisplay)
-        let copy_url = url;
-    // post data from the server
-     const postData = (u,v,t) => {
-        $.ajax({
-            type: 'POST',
-            url: u,
-            data: {result:v,equation:t}
-        })
-     }
-    postData(copy_url,val,trust)
+    postData(url,val,trust)
     //get data
-    getData(copy_url,newData)
+    getData(url)
+
 }
 // 12) Function to check for 2 keys pressed at the same time
 const isCleared = () => combo[combo.length-1] == 'c' && combo[combo.length-2] == 'Control';
@@ -349,11 +414,9 @@ window.addEventListener('keydown',(e)=>{
     let indArr = [...indicators]
     let currKey = e.key;
     combo.push(currKey)
-    // console.log(combo)
     const specialObject = {DELETE:'Backspace',NEG:'n',AC:'c'}
     // map buttons with keypress
-    // console.log(e.key)
-    console.log(combo)
+    // console.log(combo)
     let key_2_btn = [...btns].map((b,index)=>{
         let content = b.textContent
         if((e.key==content||e.key==specialObject[content])){

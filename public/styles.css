@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'Agdasima', sans-serif; */
 }
 /*center content within body*/
 body{
@@ -123,8 +122,8 @@ transition:.05s;
     padding-bottom:1rem;
     border-radius:12px 12px 0 0;
     transition:.25s;
-    
 }
+
 /*rotate material icon */
 #indicator-container>span:nth-child(1){
     transform:rotate(180deg)
