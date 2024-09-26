@@ -237,7 +237,7 @@ colors.forEach((color,index)=>{
             justify-content: center;
             align-items: center;
             font-size: 24px;
-            box-shadow: 1.5px 1.5px 8px .5px silver;
+            box-shadow: 0px 0px 3px 2px silver;
             font-family: 'Agdasima', sans-serif;
             transition: .25s ease;
             `
@@ -248,7 +248,7 @@ colors.forEach((color,index)=>{
                 margin-top: 1rem;
                 letter-spacing: 1.25px;
                 color:#fff;
-                box-shadow: 1.5px 1.5px 8px .5px #fff; `
+                box-shadow: 0px 0px 3px 2px #fff; `
             }
             })
         }
@@ -266,7 +266,7 @@ colors.forEach((color,index)=>{
                     justify-content: center;
                     align-items: center;
                     font-size: 24px;
-                    box-shadow: 1.5px 1.5px 8px .5px #4b454574;
+                    box-shadow: 0px 0px 3px 2px #4b454574;
                     font-family: 'Agdasima', sans-serif;
                     transition: .25s ease;
                     `
@@ -277,7 +277,7 @@ colors.forEach((color,index)=>{
                     margin-top: 1rem;
                     color:#000;
                     letter-spacing: 1.25px;
-                    box-shadow: 1.5px 1.5px 8px .5px #4b454574; `
+                    box-shadow: 0px 0px 3px 2px #4b454574; `
                 }
             })
         }
