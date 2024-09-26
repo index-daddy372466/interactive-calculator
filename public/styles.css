@@ -364,7 +364,6 @@ transition:.25s;
     }
     body,#wrapper{
     overflow-y:scroll;
-    overflow:hidden;
     }
 
 }
