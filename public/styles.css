@@ -7,8 +7,8 @@
 /*center content within body*/
 body{
     width: 100%;
-    overflow-x:hidden;
     display:flex;
+    overflow:hidden;
     flex-direction:column;
     align-items: center;
     justify-content: center;
@@ -26,8 +26,9 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     min-height: 100vh;
+    border:3px solid red;
 }
 
 /* _________________________________ */
@@ -117,8 +118,8 @@ transition:.05s;
     justify-content: space-evenly;
     padding:0 2rem;
     align-items: center;
-    position: absolute;
-    top:-6.75rem;
+    /* position: absolute;
+    top:-6.75rem; */
     padding-bottom:1rem;
     border-radius:12px 12px 0 0;
     transition:.25s;
@@ -355,13 +356,12 @@ transition:.25s;
   @media screen and (max-width:900px){
     .cal-container{
         width: 100%;
-        height:100%;
+        height:100vh;
         box-shadow: 0px 0px 9px .5px #4b4545a8;
         z-index:999;
         transform: scale(1);
-        margin-top:2rem;
     }
-    body{
+    body,#wrapper{
     overflow-y:scroll;
     overflow:hidden;
     }
