@@ -360,8 +360,7 @@ transition:.25s;
         height:100%;
         box-shadow: 0px 0px 9px .5px #4b4545a8;
         z-index:999;
-        transform: scale(.85);
-        transform:translate(0,-33px);
+        transform:translate(0,-33px) scale(.87);
     }
     body,#wrapper{
     overflow-y:scroll;
