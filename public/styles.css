@@ -279,9 +279,11 @@ text-shadow: 0px 0px .5px #fff;
 /*Display actual*/
 .cal-display-container>.display-actual{
 height: 50px;
-width: 400px;
+width: 100%;
 border-radius: 8px;
-border: none;
+border-right:none;
+border-left:none;
+border:none;
 box-shadow: inset 0px 0px 1.5px .5px #4b4545a8;
 text-align: right;
 padding: 0 2rem;
@@ -358,7 +360,7 @@ transition:.25s;
         height:100%;
         box-shadow: 0px 0px 9px .5px #4b4545a8;
         z-index:999;
-        transform: scale(1);
+        transform: scale(.8);
     }
     body,#wrapper{
     overflow-y:scroll;
