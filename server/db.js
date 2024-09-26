@@ -2,14 +2,14 @@ require('dotenv').config()
 const { Pool } = require('pg')
 const { Sequelize } = require('sequelize')
 
-    const sequalize = new Sequelize(process.env.DB_URI,
-        {dialect:"sqlite",
-         storage:"./database.sqlite",
-         logging:false,
-        })
-        sequalize.sync().then(()=>{
-            console.log('you are connected to pg')
-        }).catch(err=>console.log(err))
+    // const sequalize = new Sequelize(process.env.DB_URI,
+    //     {dialect:"sqlite",
+    //      storage:"./database.sqlite",
+    //      logging:false,
+    //     })
+    //     sequalize.sync().then(()=>{
+    //         console.log('you are connected to pg')
+    //     }).catch(err=>console.log(err))
 
 const pool = new Pool({
     user: process.env.DBU,
@@ -17,9 +17,9 @@ const pool = new Pool({
     password: process.env.PD,
     port: process.env.DBP,
     host:process.env.DBH,
-    ssl:{
-        rejectUnauthorized: false,
-    }
+    // ssl:{
+    //     rejectUnauthorized: false,
+    // }
 
 })
 
